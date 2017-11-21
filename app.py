@@ -33,12 +33,14 @@ def callback():
 
     return 'OK'
 
+def test():
+    return 'hi'
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text='Your Message is: ' + event.message.text + 'i can speak.'))
+        TextSendMessage(text = test())) #event.message.text
 
 
 if __name__ == "__main__":
