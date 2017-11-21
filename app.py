@@ -38,7 +38,7 @@ def callback():
 def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(text='Your Message is: ' + event.message.text + 'i can speak.'))
 
 
 if __name__ == "__main__":
