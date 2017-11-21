@@ -16,6 +16,212 @@ line_bot_api = LineBotApi('Rsv+fNPzGA0IfGXrCQjQIoZQuMgWLjy6Ii6EuVIg5TwNlGBO2TOE1
 handler = WebhookHandler('f90436ad62add61120232762c9699a7e')
 
 
+#this part is my code
+
+def getData(fileName): #開啟六情緒辭典
+    text = ""
+    for i in open(fileName, 'r', encoding='UTF-8'):
+        text = text + i.upper()
+    text_list = []
+    text_split = text.split('\n')
+    for i in range(0,len(text_split)):
+        text_list.append(text_split[i])
+    return(text_list)
+
+def getPrediction(news):
+    #辭典
+    positive = getData('Positive.txt')
+    negative = getData('Negative.txt')
+    uncertainty = getData('Uncertainty.txt')
+    litigious = getData('Litigious.txt')
+    modal_strong = getData('Modal_Strong.txt')
+    modal_weak = getData('Modal_Weak.txt')
+
+    #將txt文字轉為大寫存放在text
+    #也將不要的符號去除
+    news = news.replace("’","")
+    news = news.replace(":","")
+    news = news.replace(",","")
+    news = news.replace(".","")
+    news = news.replace("‘","")
+    news = news.replace("(","")
+    news = news.replace(")","")
+    text = news.upper()#print(i,end='')
+
+    #將text切割後存放在text_split
+    #假設該詞有在Positive裡將紀錄
+    temp_list = [] #存放文字及向量紀錄
+    positive_num = 0
+    negative_num = 0
+    uncertainty_num = 0
+    litigious_num = 0
+    modal_strong_num = 0
+    modal_weak_num = 0
+
+    text_split = text.split(" ")
+    text_split = (list(set(text_split))) #去除重複的字
+    for i in range(0,len(text_split)):
+        if(text_split[i] in positive):
+            temp = 0
+            text = text_split[i]
+            for j in range(0,len(temp_list)): #假設A in B 先判斷A是否已在list裡，如果有就從list加數值
+                if(text in temp_list[j][0]):  #如[A,0,0,0,0,0,1] --> [A,1,0,0,0,0,1]
+                    temp_list[j][1] = 1
+                    positive_num += 1
+                    temp += 1
+                    break
+            if temp == 0:
+                positive_num += 1
+                temp_list.append([text_split[i],1,0,0,0,0,0])
+
+        if(text_split[i] in negative):
+            temp = 0
+            text = text_split[i]
+            for j in range(0,len(temp_list)):
+                if(text in temp_list[j][0]):
+                    temp_list[j][2] = 1
+                    negative_num += 1
+                    temp += 1
+                    break
+            if temp == 0:
+                negative_num += 1
+                temp_list.append([text_split[i],0,1,0,0,0,0])
+
+        if(text_split[i] in uncertainty):
+            temp = 0
+            text = text_split[i]
+            for j in range(0,len(temp_list)):
+                if(text in temp_list[j][0]):
+                    temp_list[j][3] = 1
+                    uncertainty_num += 1
+                    temp += 1
+                    break
+            if temp == 0:
+                uncertainty_num += 1
+                temp_list.append([text_split[i],0,0,1,0,0,0])
+
+        if(text_split[i] in litigious):
+            temp = 0
+            text = text_split[i]
+            for j in range(0,len(temp_list)):
+                if(text in temp_list[j][0]):
+                    temp_list[j][4] = 1
+                    litigious_num += 1
+                    temp += 1
+                    break
+            if temp == 0:
+                litigious_num += 1
+                temp_list.append([text_split[i],0,0,0,1,0,0])
+
+        if(text_split[i] in modal_strong):
+            temp = 0
+            text = text_split[i]
+            for j in range(0,len(temp_list)):
+                if(text in temp_list[j][0]):
+                    temp_list[j][5] = 1
+                    modal_strong_num += 1
+                    temp += 1
+                    break
+            if temp == 0:
+                modal_strong_num += 1
+                temp_list.append([text_split[i],0,0,0,0,1,0])
+
+        if(text_split[i] in modal_weak):
+            temp = 0
+            text = text_split[i]
+            for j in range(0,len(temp_list)):
+                if(text in temp_list[j][0]):
+                    temp_list[j][6] = 1
+                    modal_weak_num += 1
+                    temp += 1
+                    break
+            if temp == 0:
+                modal_weak_num += 1
+                temp_list.append([text_split[i],0,0,0,0,0,1])
+
+
+    #情感維度強度分佈向量
+    temp_list.append(['S',positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num])
+    print(positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num)
+
+    #將結果存在csv檔
+    #import pandas as pd
+    #creat_csv = pd.DataFrame(temp_list, columns=['Words','Positive','Negative','Uncertainty','Litigious','Modal_strong','Modal_weak'])
+    #creat_csv.to_csv('EmotionData.csv')
+
+    #此函數為判斷漲跌
+    def Prediction(Positive,Negative,Uncertainty,Litigious,Modal_Strong,Modal_Weak):
+        if Uncertainty < 2.5:
+            if Modal_Strong < 2.5:
+                if Modal_Strong < 0.5:
+                    if Negative < 6.5:
+                        if Positive < 1.5:
+                            if Modal_Weak < 0.5:
+                                return('Up')
+                            elif Modal_Weak >= 0.5:
+                                return('Down')
+                        elif Positive >= 1.5:
+                            return('Up')
+                    elif Negative >= 6.5:
+                        return('Down')
+                elif Modal_Strong >= 0.5:
+                    if Negative < 6:
+                        if Modal_Strong < 1.5:
+                            return('Down')
+                        elif Modal_Strong >= 1.5:
+                            if Positive < 2:
+                                return('Up')
+                            elif Positive >= 2:
+                                return('Down')
+                    elif Negative >= 6:
+                        return('Up')
+            elif Modal_Strong >= 2.5:
+                return('Up')
+        elif Uncertainty >= 2.5:
+            if Negative < 9.5:
+                if Positive < 2.5:
+                    return('Down')
+                elif Positive >= 2.5:
+                    if Uncertainty < 6.5:
+                        if Positive < 6.5:
+                            if Modal_Strong < 2:
+                                return('Up')
+                            elif Modal_Strong >= 2:
+                                if Litigious < 2.5:
+                                    if Modal_Strong < 4.5:
+                                        return('Down')
+                                    elif Modal_Strong > 4.5:
+                                        return('Down')
+                                elif Litigious >= 2.5:
+                                    return('Up')
+                        elif Positive >= 6.5:
+                            return('Down')
+                    elif Uncertainty >= 6.5:
+                        if Litigious < 1:
+                            if Negative < 5.5:
+                                return('Up')
+                            elif Negative >= 5.5:
+                                if Uncertainty < 7.5:
+                                    return('Down')
+                                elif Uncertainty >= 7.5:
+                                    return('Down')
+                        elif Litigious >= 1:
+                            return('Up')
+            elif Negative >= 9.5:
+                return('Down')
+
+
+    Correct = Prediction(positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num)
+
+    if Correct == 'Down':
+        return('預測結果為跌.')
+    elif Correct == 'Up':
+        return('預測結果為漲.')
+
+
+
+#this part is my code
+
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -33,14 +239,11 @@ def callback():
 
     return 'OK'
 
-def test():
-    return 'hi'
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text = test())) #event.message.text
+        TextSendMessage(text = getPrediction(event.message.text))) #event.message.text
 
 
 if __name__ == "__main__":
