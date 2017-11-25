@@ -142,8 +142,9 @@ def getPrediction(news):
 
     #情感維度強度分佈向量
     temp_list.append(['S',positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num])
-    return(positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num)
-
+    #print(positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num)
+    temp_for_bot = str(positive_num) + 'hi'
+    return(temp_for_bot)
     #將結果存在csv檔
     #import pandas as pd
     #creat_csv = pd.DataFrame(temp_list, columns=['Words','Positive','Negative','Uncertainty','Litigious','Modal_strong','Modal_weak'])
