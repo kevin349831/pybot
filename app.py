@@ -142,7 +142,7 @@ def getPrediction(news):
 
     #情感維度強度分佈向量
     temp_list.append(['S',positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num])
-    print(positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num)
+    return(positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num)
 
     #將結果存在csv檔
     #import pandas as pd
@@ -211,12 +211,12 @@ def getPrediction(news):
                 return('Down')
 
 
-    Correct = Prediction(positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num)
+    #Correct = Prediction(positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num)
 
-    if Correct == 'Down':
-        return('預測結果為跌.')
-    elif Correct == 'Up':
-        return('預測結果為漲.')
+    #if Correct == 'Down':
+        #return('預測結果為跌.')
+    #elif Correct == 'Up':
+        #return('預測結果為漲.')
 
 
 
