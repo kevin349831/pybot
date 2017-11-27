@@ -622,6 +622,28 @@ def getPrediction(news):
     elif Correct == 'Up':
         return('預測結果為漲.')
 
+    
+def findNewsFromWeb(stockName):
+    import requests
+    from bs4 import BeautifulSoup
+    
+    res = requests.get('https://www.bloomberg.com/quote/' + stockName +':US')
+    soup = BeautifulSoup(res.text, "html.parser")
+
+    news = soup.find_all('article','newsItem__5b5cb00f')
+    x = 0
+    for i in news:
+        if i.find('a'):
+            link = i.find('a')['href']
+        if i.find('div'):
+            title = i.find('div').text
+            date = soup.find_all('div','publishedAt__4009bb4f ')[x].text
+        x += 1
+    return(title,date,link)
+#stockName = 'F'
+#findNewsFromWeb(stockName) # type=tuple
+    
+
 def choiceMessage(message):
     textHello = ['HI','你好','妳好','hello','?']
     textNo = ['NO','不會','不','如何使用']
@@ -635,6 +657,8 @@ def choiceMessage(message):
         return('你可以丟新聞內容給我，我會幫你預測隔日漲跌。')
     elif message.message.text.upper() in textLater:
         return('摁！')
+    elif len(message.message.text) < 5: #從bloomberg找股票新聞
+        return(findNewsFromWeb(message.message.text.upper()))
     else:
         return('不會使用嗎？')
     
