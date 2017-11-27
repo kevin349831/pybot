@@ -31,468 +31,468 @@ def getData(fileName): #開啟六情緒辭典
 #此函數為判斷漲跌
 def Prediction(Positive,Negative,Uncertainty,Litigious,Modal_Strong,Modal_Weak):
     if Modal_Strong < 1.5:
-    if Positive < 8.5:
-        if Positive < 5.5:
-            if Uncertainty < 4.5:
-                if Positive < 1.5:
-                    if Uncertainty < 2.5:
-                        if Uncertainty < 0.5:
-                            if Modal_Strong < 0.5:
-                                if Positive < 0.5:
-                                    return('Down')
-                                elif Positive >= 0.5:
-                                    return('Up')
-                            elif Modal_Strong >= 0.5:
-                                return('Down')
-                        elif Uncertainty >= 0.5:
-                            if Modal_Strong < 0.5:
-                                if Uncertainty < 1.5:
+        if Positive < 8.5:
+            if Positive < 5.5:
+                if Uncertainty < 4.5:
+                    if Positive < 1.5:
+                        if Uncertainty < 2.5:
+                            if Uncertainty < 0.5:
+                                if Modal_Strong < 0.5:
                                     if Positive < 0.5:
-                                        return('Up')
-                                    elif Positive >= 0.5:
                                         return('Down')
-                                elif Uncertainty >= 1.5:
-                                    if Positive < 0.5:
-                                        return('Up')
                                     elif Positive >= 0.5:
-                                        return('Down')
-                            elif Modal_Strong >= 0.5:
-                                if Positive < 0.5:
+                                        return('Up')
+                                elif Modal_Strong >= 0.5:
                                     return('Down')
-                                elif Positive >= 0.5:
+                            elif Uncertainty >= 0.5:
+                                if Modal_Strong < 0.5:
                                     if Uncertainty < 1.5:
-                                        return('Down')
+                                        if Positive < 0.5:
+                                            return('Up')
+                                        elif Positive >= 0.5:
+                                            return('Down')
                                     elif Uncertainty >= 1.5:
+                                        if Positive < 0.5:
+                                            return('Up')
+                                        elif Positive >= 0.5:
+                                            return('Down')
+                                elif Modal_Strong >= 0.5:
+                                    if Positive < 0.5:
                                         return('Down')
-                    elif Uncertainty >= 2.5:
-                        return('Up')
-                elif Positive >= 1.5:
-                    if Modal_Strong < 0.5:
-                        if Uncertainty <1.5:
-                            if Positive < 3.5:
-                                return('Down')
-                            elif Positive >= 3.5:
-                                if Positive < 4.5:
-                                    return('Up')
-                                elif Positive >= 4.5:
-                                    if Uncertainty < 0.5:
-                                        return('Down')
-                                    elif Uncertainty >= 0.5:
-                                        return('Down')
-                        elif Uncertainty >= 1.5:
+                                    elif Positive >= 0.5:
+                                        if Uncertainty < 1.5:
+                                            return('Down')
+                                        elif Uncertainty >= 1.5:
+                                            return('Down')
+                        elif Uncertainty >= 2.5:
                             return('Up')
-                    elif Modal_Strong >= 0.5:
-                        if Positive < 4.5:
-                            if Uncertainty < 1.5:
-                                if Positive < 2.5:
-                                    return('Up')
-                                elif Positive >= 2.5:
-                                    if Uncertainty < 0.5:
-                                        return('Down')
-                                    elif Uncertainty >= 0.5:
-                                        if Positive < 3.5:
-                                            return('Up')
-                                        elif Positive >= 3.5:
-                                            return('Up')
+                    elif Positive >= 1.5:
+                        if Modal_Strong < 0.5:
+                            if Uncertainty <1.5:
+                                if Positive < 3.5:
+                                    return('Down')
+                                elif Positive >= 3.5:
+                                    if Positive < 4.5:
+                                        return('Up')
+                                    elif Positive >= 4.5:
+                                        if Uncertainty < 0.5:
+                                            return('Down')
+                                        elif Uncertainty >= 0.5:
+                                            return('Down')
                             elif Uncertainty >= 1.5:
-                                if Uncertainty < 3.5:
+                                return('Up')
+                        elif Modal_Strong >= 0.5:
+                            if Positive < 4.5:
+                                if Uncertainty < 1.5:
                                     if Positive < 2.5:
-                                        if Uncertainty < 2.5:
-                                            return('Down')
-                                        elif Uncertainty >= 2.5:
-                                            return('Down')
+                                        return('Up')
                                     elif Positive >= 2.5:
-                                        if Uncertainty < 2.5:
+                                        if Uncertainty < 0.5:
                                             return('Down')
-                                        elif Uncertainty >= 2.5:
+                                        elif Uncertainty >= 0.5:
                                             if Positive < 3.5:
                                                 return('Up')
                                             elif Positive >= 3.5:
                                                 return('Up')
-                                elif Uncertainty >= 3.5:
-                                    return('Down')
-                        elif Positive >= 4.5:
-                            if Uncertainty < 1.5:
-                                return('Down')
-                            elif Uncertainty >= 1.5:
-                                return('Up')
-            elif Uncertainty >= 4.5:
-                return('Down')
-        elif Positive >= 5.5:
-            if Positive < 7.5:
-                if Uncertainty < 7.5:
-                    if Uncertainty < 2.5:
-                        if Modal_Strong < 0.5:
-                            return('Up')
-                        elif Modal_Strong >= 0.5:
-                            if Positive < 6.5:
-                                if Uncertainty < 0.5:
-                                    return('Up')
-                                elif Uncertainty >= 0.5:
-                                    if Uncertainty < 1.5:
-                                        return('Down')
-                                    elif Uncertainty >= 1.5:
-                                        return('Down')
-                            elif Positive >= 6.5:
-                                return('Down')
-                    elif Uncertainty >= 2.5:
-                        return('Up')
-                elif Uncertainty >= 7.5:
-                    return('Down')
-            elif Positive >= 7.5:
-                if Uncertainty < 1.5:
-                    return('Down')
-                elif Uncertainty >= 1.5:
-                    return('Down')
-    elif Positive >= 8.5:
-        if Positive < 11.5:
-            return('Up')
-        elif Positive >= 11.5:
-            return('Down')
-elif Modal_Strong >= 1.5:
-    if Positive < 11.5:
-        if Modal_Strong < 3.5:
-            if Positive < 0.5:
-                return('Up')
-            elif Positive >= 0.5:
-                if Positive < 2.5:
-                    if Modal_Strong < 2.5:
-                        if Uncertainty < 1.5:
-                            return('Up')
-                        elif Uncertainty >= 1.5:
-                            if Positive < 1.5:
-                                if Uncertainty < 4.5:
-                                    if Uncertainty < 3.5:
-                                        if Uncertainty < 2.5:
-                                            return('Up')
-                                        elif Uncertainty >= 2.5:
-                                            return('Up')
-                                    elif Uncertainty >= 3.5:
-                                        return('Down')
-                                elif Uncertainty >= 4.5:
-                                    retunr('Up')
-                            elif Positive >= 1.5:
-                                if Uncertainty < 2.5:
-                                    return('Down')
-                                elif Uncertainty >= 2.5:
-                                    return('Up')
-                    elif Modal_Strong >= 2.5:
-                        if Uncertainty < 3.5:
-                            return('Down')
-                        elif Uncertainty >= 3.5:
-                            return('Down')
-                elif Positive >= 2.5:
-                    if Uncertainty < 0.5:
-                        if Positive < 6.5:
-                            return('Down')
-                        elif Positive >= 6.5:
-                            if Positive < 9:
-                                return('Up')
-                            elif Positive >= 9:
-                                return('Down')
-                    elif Uncertainty >= 0.5:
-                        if Positive < 10.5:
-                            if Uncertainty < 5.5:
-                                if Uncertainty < 1.5:
-                                    if Positive < 5:
-                                        return('Up')
-                                    elif Positive >= 5:
-                                        if Positive < 9:
-                                            if Positive < 7:
-                                                return('Down')
-                                            elif Positive >= 7:
-                                                return('Down')
-                                        elif Positive >= 9:
-                                            return('Up')
                                 elif Uncertainty >= 1.5:
-                                    if Positive < 7.5:
-                                        if Modal_Strong < 2.5:
-                                            if Positive < 5.5:
-                                                if Positive < 3.5:
-                                                    if Uncertainty < 2.5:
-                                                        return('Up')
-                                                    elif Uncertainty >= 2.5:
-                                                        if Uncertainty < 4.5:
-                                                            if Uncertainty < 3.5:
-                                                                return('Down')
-                                                            elif Uncertainty >= 3.5:
-                                                                return('Down')
-                                                        elif Uncertainty >= 4.5:
-                                                            return('Down')
-                                                elif Positive >= 3.5:
-                                                    if Positive < 4.5:
-                                                        if Uncertainty < 3.5:
-                                                            return('Down')
-                                                        elif Uncertainty >= 3.5:
-                                                            return('Up')
-                                                    elif Positive >= 4.5:
-                                                        if Uncertainty < 3.5:
-                                                            if Uncertainty < 2.5:
-                                                                return('Down')
-                                                            elif Uncertainty >= 2.5:
-                                                                return('Down')
-                                                        elif Uncertainty >= 3.5:
-                                                            if Uncertainty < 4.5:
-                                                                return('Up')
-                                                            elif Uncertainty >= 4.5:
-                                                                return('Up')
-                                            elif Positive >= 5.5:
-                                                if Uncertainty < 4.5:
-                                                    if Uncertainty < 2.5:
-                                                        return('Down')
-                                                    elif Uncertainty >= 2.5:
-                                                        if Uncertainty < 3.5:
-                                                            if Positive < 6.5:
-                                                                return('Up')
-                                                            elif Positive >= 6.5:
-                                                                return('Down')
-                                                        elif Uncertainty >= 3.5:
-                                                            return('Down')
-                                                elif Uncertainty >= 4.5:
-                                                    return('Down')
-                                        elif Modal_Strong >= 2.5:
-                                            if Positive < 5.5:
-                                                if Positive < 4:
-                                                    if Uncertainty < 4.5:
-                                                        if Uncertainty < 3.5:
-                                                            if Uncertainty < 2.5:
-                                                                return('Down')
-                                                            elif Uncertainty >= 2.5:
-                                                                return('Up')
-                                                        elif Uncertainty >= 3.5:
-                                                            return('Down')
-                                                    elif Uncertainty >= 4.5:
-                                                        return('Up')
-                                                elif Positive >= 4:
-                                                    if Uncertainty < 3.5:
-                                                        if Uncertainty < 2.5:
-                                                            return('Down')
-                                                        elif Uncertainty >= 2.5:
-                                                            return('Up')
-                                                    elif Uncertainty >= 3.5:
-                                                        if Uncertainty < 4.5:
-                                                            return('Down')
-                                                        elif Uncertainty >= 4.5:
-                                                            return('Down')
-                                            elif Positive >= 5.5:
-                                                return('Up')
-                                    elif Positive >= 7.5:
-                                        if Modal_Strong < 2.5:
-                                            return('Down')
-                                        elif Modal_Strong >= 2.5:
+                                    if Uncertainty < 3.5:
+                                        if Positive < 2.5:
                                             if Uncertainty < 2.5:
                                                 return('Down')
                                             elif Uncertainty >= 2.5:
-                                                if Positive < 9.5:
+                                                return('Down')
+                                        elif Positive >= 2.5:
+                                            if Uncertainty < 2.5:
+                                                return('Down')
+                                            elif Uncertainty >= 2.5:
+                                                if Positive < 3.5:
+                                                    return('Up')
+                                                elif Positive >= 3.5:
+                                                    return('Up')
+                                    elif Uncertainty >= 3.5:
+                                        return('Down')
+                            elif Positive >= 4.5:
+                                if Uncertainty < 1.5:
+                                    return('Down')
+                                elif Uncertainty >= 1.5:
+                                    return('Up')
+                elif Uncertainty >= 4.5:
+                    return('Down')
+            elif Positive >= 5.5:
+                if Positive < 7.5:
+                    if Uncertainty < 7.5:
+                        if Uncertainty < 2.5:
+                            if Modal_Strong < 0.5:
+                                return('Up')
+                            elif Modal_Strong >= 0.5:
+                                if Positive < 6.5:
+                                    if Uncertainty < 0.5:
+                                        return('Up')
+                                    elif Uncertainty >= 0.5:
+                                        if Uncertainty < 1.5:
+                                            return('Down')
+                                        elif Uncertainty >= 1.5:
+                                            return('Down')
+                                elif Positive >= 6.5:
+                                    return('Down')
+                        elif Uncertainty >= 2.5:
+                            return('Up')
+                    elif Uncertainty >= 7.5:
+                        return('Down')
+                elif Positive >= 7.5:
+                    if Uncertainty < 1.5:
+                        return('Down')
+                    elif Uncertainty >= 1.5:
+                        return('Down')
+        elif Positive >= 8.5:
+            if Positive < 11.5:
+                return('Up')
+            elif Positive >= 11.5:
+                return('Down')
+    elif Modal_Strong >= 1.5:
+        if Positive < 11.5:
+            if Modal_Strong < 3.5:
+                if Positive < 0.5:
+                    return('Up')
+                elif Positive >= 0.5:
+                    if Positive < 2.5:
+                        if Modal_Strong < 2.5:
+                            if Uncertainty < 1.5:
+                                return('Up')
+                            elif Uncertainty >= 1.5:
+                                if Positive < 1.5:
+                                    if Uncertainty < 4.5:
+                                        if Uncertainty < 3.5:
+                                            if Uncertainty < 2.5:
+                                                return('Up')
+                                            elif Uncertainty >= 2.5:
+                                                return('Up')
+                                        elif Uncertainty >= 3.5:
+                                            return('Down')
+                                    elif Uncertainty >= 4.5:
+                                        retunr('Up')
+                                elif Positive >= 1.5:
+                                    if Uncertainty < 2.5:
+                                        return('Down')
+                                    elif Uncertainty >= 2.5:
+                                        return('Up')
+                        elif Modal_Strong >= 2.5:
+                            if Uncertainty < 3.5:
+                                return('Down')
+                            elif Uncertainty >= 3.5:
+                                return('Down')
+                    elif Positive >= 2.5:
+                        if Uncertainty < 0.5:
+                            if Positive < 6.5:
+                                return('Down')
+                            elif Positive >= 6.5:
+                                if Positive < 9:
+                                    return('Up')
+                                elif Positive >= 9:
+                                    return('Down')
+                        elif Uncertainty >= 0.5:
+                            if Positive < 10.5:
+                                if Uncertainty < 5.5:
+                                    if Uncertainty < 1.5:
+                                        if Positive < 5:
+                                            return('Up')
+                                        elif Positive >= 5:
+                                            if Positive < 9:
+                                                if Positive < 7:
+                                                    return('Down')
+                                                elif Positive >= 7:
+                                                    return('Down')
+                                            elif Positive >= 9:
+                                                return('Up')
+                                    elif Uncertainty >= 1.5:
+                                        if Positive < 7.5:
+                                            if Modal_Strong < 2.5:
+                                                if Positive < 5.5:
+                                                    if Positive < 3.5:
+                                                        if Uncertainty < 2.5:
+                                                            return('Up')
+                                                        elif Uncertainty >= 2.5:
+                                                            if Uncertainty < 4.5:
+                                                                if Uncertainty < 3.5:
+                                                                    return('Down')
+                                                                elif Uncertainty >= 3.5:
+                                                                    return('Down')
+                                                            elif Uncertainty >= 4.5:
+                                                                return('Down')
+                                                    elif Positive >= 3.5:
+                                                        if Positive < 4.5:
+                                                            if Uncertainty < 3.5:
+                                                                return('Down')
+                                                            elif Uncertainty >= 3.5:
+                                                                return('Up')
+                                                        elif Positive >= 4.5:
+                                                            if Uncertainty < 3.5:
+                                                                if Uncertainty < 2.5:
+                                                                    return('Down')
+                                                                elif Uncertainty >= 2.5:
+                                                                    return('Down')
+                                                            elif Uncertainty >= 3.5:
+                                                                if Uncertainty < 4.5:
+                                                                    return('Up')
+                                                                elif Uncertainty >= 4.5:
+                                                                    return('Up')
+                                                elif Positive >= 5.5:
                                                     if Uncertainty < 4.5:
+                                                        if Uncertainty < 2.5:
+                                                            return('Down')
+                                                        elif Uncertainty >= 2.5:
+                                                            if Uncertainty < 3.5:
+                                                                if Positive < 6.5:
+                                                                    return('Up')
+                                                                elif Positive >= 6.5:
+                                                                    return('Down')
+                                                            elif Uncertainty >= 3.5:
+                                                                return('Down')
+                                                    elif Uncertainty >= 4.5:
+                                                        return('Down')
+                                            elif Modal_Strong >= 2.5:
+                                                if Positive < 5.5:
+                                                    if Positive < 4:
+                                                        if Uncertainty < 4.5:
+                                                            if Uncertainty < 3.5:
+                                                                if Uncertainty < 2.5:
+                                                                    return('Down')
+                                                                elif Uncertainty >= 2.5:
+                                                                    return('Up')
+                                                            elif Uncertainty >= 3.5:
+                                                                return('Down')
+                                                        elif Uncertainty >= 4.5:
+                                                            return('Up')
+                                                    elif Positive >= 4:
                                                         if Uncertainty < 3.5:
+                                                            if Uncertainty < 2.5:
+                                                                return('Down')
+                                                            elif Uncertainty >= 2.5:
+                                                                return('Up')
+                                                        elif Uncertainty >= 3.5:
+                                                            if Uncertainty < 4.5:
+                                                                return('Down')
+                                                            elif Uncertainty >= 4.5:
+                                                                return('Down')
+                                                elif Positive >= 5.5:
+                                                    return('Up')
+                                        elif Positive >= 7.5:
+                                            if Modal_Strong < 2.5:
+                                                return('Down')
+                                            elif Modal_Strong >= 2.5:
+                                                if Uncertainty < 2.5:
+                                                    return('Down')
+                                                elif Uncertainty >= 2.5:
+                                                    if Positive < 9.5:
+                                                        if Uncertainty < 4.5:
+                                                            if Uncertainty < 3.5:
+                                                                if Positive < 8.5:
+                                                                    return('Down')
+                                                                elif Positive >= 8.5:
+                                                                    return('Up')
+                                                            elif Uncertainty >= 3.5:
+                                                                if Positive < 8.5:
+                                                                    return('Down')
+                                                                elif Positive >= 8.5:
+                                                                    return('Down')
+                                                        elif Uncertainty >= 4.5:
+                                                            return('Down')
+                                                    elif Positive >= 9.5:
+                                                        return('Up')
+                                elif Uncertainty >= 5.5:
+                                    if Positive < 6.5:
+                                        if Uncertainty < 7.5:
+                                            if Positive < 5.5:
+                                                return('Up')
+                                            elif Positive >= 5.5:
+                                                if Modal_Strong < 2.5:
+                                                    return('Down')
+                                                elif Modal_Strong >= 2.5:
+                                                    return('Up')
+                                        elif Uncertainty >= 7.5:
+                                            if Positive < 5.5:
+                                                if Uncertainty < 8.5:
+                                                    return('Up')
+                                                elif Uncertainty >= 8.5:
+                                                    if Uncertainty < 9.5:
+                                                        return('Down')
+                                                    elif Uncertainty >= 9.5:
+                                                        if Positive < 3.5:
+                                                            if Uncertainty < 10.5:
+                                                                return('Up')
+                                                            elif Uncertainty >= 10.5:
+                                                                return('Down')
+                                                        elif Positive >= 3.5:
+                                                            return('Down')
+                                            elif Positive >= 5.5:
+                                                return('Down')
+                                    elif Positive >= 6.5:
+                                        if Uncertainty < 12.5:
+                                            return('Up')
+                                        elif Uncertainty.txt >= 12.5:
+                                            return('Down')
+                            elif Positve >= 10.5:
+                                return('Up')
+            elif Modal_Strong >= 3.5:
+                if Uncertainty < 3.5:
+                    if Positive < 5.5:
+                        if Uncertainty < 2:
+                            return('Up')
+                        elif Uncertainty >=2:
+                            if Positive < 4.5:
+                                return('Down')
+                            elif Positive >= 4.5:
+                                return('Up')
+                    elif Positive >= 5.5:
+                        return('Down')
+                elif Uncertainty >= 3.5:
+                    if Modal_Strong < 7.5:
+                        if Positive < 4.5:
+                            if Modal_Strong < 5.5:
+                                if Uncertainty < 4.5:
+                                    if Modal_Strong < 4.5:
+                                        if Positive < 3:
+                                            return('Up')
+                                        elif Positive >= 3:
+                                            return('Up')
+                                    elif Modal_Strong >= 4.5:
+                                        return('Down')
+                                elif Uncertainty >= 4.5:
+                                    if Uncertainty < 6.5:
+                                        if Positive < 3.5:
+                                            if Uncertainty < 5.5:
+                                                return('Up')
+                                            elif Uncertainty >= 5.5:
+                                                return('Down')
+                                        elif Positive >= 3.5:
+                                            if Uncertainty < 5.5:
+                                                return('Down')
+                                            elif Uncertainty >= 5.5:
+                                                return('Up')
+                                    elif Uncertainty >= 6.5:
+                                        return('Down')
+                            elif Modal_Strong >= 5.5:
+                                return('Down')
+                        elif Positive >= 4.5:
+                            if Uncertainty < 11.5:
+                                if Positive < 9.5:
+                                    if Modal_Strong < 5.5:
+                                        if Positive < 6.5:
+                                            if Uncertainty < 5.5:
+                                                if Modal_Strong < 4.5:
+                                                    if Uncertainty < 4.5:
+                                                        return('Up')
+                                                    elif Uncertainty >= 4.5:
+                                                        return('Up')
+                                                elif Modal_Strong >= 4.5:
+                                                    if Uncertainty < 4.5:
+                                                        return('Down')
+                                                    elif Uncertainty >= 4.5:
+                                                        return('Down')
+                                            elif Uncertainty >= 5.5:
+                                                if Uncertainty < 8.5:
+                                                    return('Up')
+                                                elif Uncertainty >= 8.5:
+                                                    if Positive < 5.5:
+                                                        return('Down')
+                                                    elif Positive >= 5.5:
+                                                        return('Up')
+                                        elif Positive >= 6.5:
+                                            if Modal_Strong < 4.5:
+                                                if Uncertainty < 7:
+                                                    if Uncertainty < 4.5:
+                                                        if Positive < 7.5:
+                                                            return('Up')
+                                                        elif Positive >= 7.5:
                                                             if Positive < 8.5:
                                                                 return('Down')
                                                             elif Positive >= 8.5:
                                                                 return('Up')
-                                                        elif Uncertainty >= 3.5:
-                                                            if Positive < 8.5:
-                                                                return('Down')
-                                                            elif Positive >= 8.5:
-                                                                return('Down')
                                                     elif Uncertainty >= 4.5:
-                                                        return('Down')
-                                                elif Positive >= 9.5:
-                                                    return('Up')
-                            elif Uncertainty >= 5.5:
-                                if Positive < 6.5:
-                                    if Uncertainty < 7.5:
-                                        if Positive < 5.5:
-                                            return('Up')
-                                        elif Positive >= 5.5:
-                                            if Modal_Strong < 2.5:
-                                                return('Down')
-                                            elif Modal_Strong >= 2.5:
-                                                return('Up')
-                                    elif Uncertainty >= 7.5:
-                                        if Positive < 5.5:
-                                            if Uncertainty < 8.5:
-                                                return('Up')
-                                            elif Uncertainty >= 8.5:
-                                                if Uncertainty < 9.5:
+                                                        return('Up')
+                                                elif Uncertainty >= 7:
                                                     return('Down')
-                                                elif Uncertainty >= 9.5:
-                                                    if Positive < 3.5:
-                                                        if Uncertainty < 10.5:
-                                                            return('Up')
-                                                        elif Uncertainty >= 10.5:
+                                            elif Modal_Strong >= 4.5:
+                                                if Uncertainty < 10:
+                                                    if Uncertainty < 5.5:
+                                                        if Positive < 7.5:
                                                             return('Down')
-                                                    elif Positive >= 3.5:
+                                                        elif Positive >= 7.5:
+                                                            return('Up')
+                                                    elif Uncertainty >= 5.5:
                                                         return('Down')
-                                        elif Positive >= 5.5:
-                                            return('Down')
-                                elif Positive >= 6.5:
-                                    if Uncertainty < 12.5:
-                                        return('Up')
-                                    elif Uncertainty.txt >= 12.5:
+                                                elif Uncertainty >= 10:
+                                                    return('Up')
+                                    elif Modal_Strong >= 5.5:
+                                        if Uncertainty < 5.5:
+                                            return('Donw')
+                                        elif Uncertainty >= 5.5:
+                                            if Uncertainty < 10:
+                                                if Positive < 6.5:
+                                                    return('Down')
+                                                elif Positive >= 6.5:
+                                                    return('Up')
+                                            elif Uncertainty >= 10:
+                                                return('Down')
+                                elif Positive >= 9.5:
+                                    if Positive < 10.5:
                                         return('Down')
-                        elif Positve >= 10.5:
-                            return('Up')
-        elif Modal_Strong >= 3.5:
-            if Uncertainty < 3.5:
-                if Positive < 5.5:
-                    if Uncertainty < 2:
-                        return('Up')
-                    elif Uncertainty >=2:
-                        if Positive < 4.5:
+                                    elif Positive >= 10.5:
+                                        if Uncertainty < 8.5:
+                                            if Uncertainty < 5.5:
+                                                return('Up')
+                                            elif Uncertainty >= 5.5:
+                                                if Modal_Strong < 5.5:
+                                                    if Uncertainty < 7.5:
+                                                        return('Down')
+                                                    elif Uncertainty >= 7.5:
+                                                        return('Up')
+                                                elif Modal_Strong >= 5.5:
+                                                    return('Down')
+                                        elif Uncertainty > 8.5:
+                                            return('Up')
+                            elif Uncertainty >= 11.5:
+                                return('Up')
+                    elif Modal_Strong >= 7.5:
+                        if Uncertainty < 6.5:
+                            if Positive < 9.5:
+                                return('Up')
+                            elif Positive >= 9.5:
+                                return('Down')
+                        elif Uncertainty >= 6.5:
                             return('Down')
-                        elif Positive >= 4.5:
-                            return('Up')
-                elif Positive >= 5.5:
+        elif Positive >= 11.5:
+            if Uncertainty < 3.5:
+                if Uncertainty < 1.5:
+                    return('Up')
+                elif Uncertainty >= 1.5:
                     return('Down')
             elif Uncertainty >= 3.5:
-                if Modal_Strong < 7.5:
-                    if Positive < 4.5:
-                        if Modal_Strong < 5.5:
-                            if Uncertainty < 4.5:
-                                if Modal_Strong < 4.5:
-                                    if Positive < 3:
-                                        return('Up')
-                                    elif Positive >= 3:
-                                        return('Up')
-                                elif Modal_Strong >= 4.5:
-                                    return('Down')
-                            elif Uncertainty >= 4.5:
-                                if Uncertainty < 6.5:
-                                    if Positive < 3.5:
-                                        if Uncertainty < 5.5:
-                                            return('Up')
-                                        elif Uncertainty >= 5.5:
-                                            return('Down')
-                                    elif Positive >= 3.5:
-                                        if Uncertainty < 5.5:
-                                            return('Down')
-                                        elif Uncertainty >= 5.5:
-                                            return('Up')
-                                elif Uncertainty >= 6.5:
-                                    return('Down')
-                        elif Modal_Strong >= 5.5:
-                            return('Down')
-                    elif Positive >= 4.5:
-                        if Uncertainty < 11.5:
-                            if Positive < 9.5:
+                if Uncertainty < 9.5:
+                    if Modal_Strong < 6.5:
+                        if Positive < 14.5:
+                            if Uncertainty < 8.5:
                                 if Modal_Strong < 5.5:
-                                    if Positive < 6.5:
-                                        if Uncertainty < 5.5:
-                                            if Modal_Strong < 4.5:
-                                                if Uncertainty < 4.5:
-                                                    return('Up')
-                                                elif Uncertainty >= 4.5:
-                                                    return('Up')
-                                            elif Modal_Strong >= 4.5:
-                                                if Uncertainty < 4.5:
-                                                    return('Down')
-                                                elif Uncertainty >= 4.5:
-                                                    return('Down')
-                                        elif Uncertainty >= 5.5:
-                                            if Uncertainty < 8.5:
-                                                return('Up')
-                                            elif Uncertainty >= 8.5:
-                                                if Positive < 5.5:
-                                                    return('Down')
-                                                elif Positive >= 5.5:
-                                                    return('Up')
-                                    elif Positive >= 6.5:
-                                        if Modal_Strong < 4.5:
-                                            if Uncertainty < 7:
-                                                if Uncertainty < 4.5:
-                                                    if Positive < 7.5:
-                                                        return('Up')
-                                                    elif Positive >= 7.5:
-                                                        if Positive < 8.5:
-                                                            return('Down')
-                                                        elif Positive >= 8.5:
-                                                            return('Up')
-                                                elif Uncertainty >= 4.5:
-                                                    return('Up')
-                                            elif Uncertainty >= 7:
-                                                return('Down')
-                                        elif Modal_Strong >= 4.5:
-                                            if Uncertainty < 10:
-                                                if Uncertainty < 5.5:
-                                                    if Positive < 7.5:
-                                                        return('Down')
-                                                    elif Positive >= 7.5:
-                                                        return('Up')
-                                                elif Uncertainty >= 5.5:
-                                                    return('Down')
-                                            elif Uncertainty >= 10:
-                                                return('Up')
-                                elif Modal_Strong >= 5.5:
-                                    if Uncertainty < 5.5:
-                                        return('Donw')
-                                    elif Uncertainty >= 5.5:
-                                        if Uncertainty < 10:
-                                            if Positive < 6.5:
-                                                return('Down')
-                                            elif Positive >= 6.5:
-                                                return('Up')
-                                        elif Uncertainty >= 10:
-                                            return('Down')
-                            elif Positive >= 9.5:
-                                if Positive < 10.5:
-                                    return('Down')
-                                elif Positive >= 10.5:
-                                    if Uncertainty < 8.5:
-                                        if Uncertainty < 5.5:
-                                            return('Up')
-                                        elif Uncertainty >= 5.5:
-                                            if Modal_Strong < 5.5:
-                                                if Uncertainty < 7.5:
-                                                    return('Down')
-                                                elif Uncertainty >= 7.5:
-                                                    return('Up')
-                                            elif Modal_Strong >= 5.5:
-                                                return('Down')
-                                    elif Uncertainty > 8.5:
-                                        return('Up')
-                        elif Uncertainty >= 11.5:
-                            return('Up')
-                elif Modal_Strong >= 7.5:
-                    if Uncertainty < 6.5:
-                        if Positive < 9.5:
-                            return('Up')
-                        elif Positive >= 9.5:
-                            return('Down')
-                    elif Uncertainty >= 6.5:
-                        return('Down')
-    elif Positive >= 11.5:
-        if Uncertainty < 3.5:
-            if Uncertainty < 1.5:
-                return('Up')
-            elif Uncertainty >= 1.5:
-                return('Down')
-        elif Uncertainty >= 3.5:
-            if Uncertainty < 9.5:
-                if Modal_Strong < 6.5:
-                    if Positive < 14.5:
-                        if Uncertainty < 8.5:
-                            if Modal_Strong < 5.5:
-                                return('Up')
-                            elif Modal_Strong >= 5.5:
-                                return('Down')
-                        elif Uncertainty >= 8.5:
-                            return('Down')
-                    elif Positive >= 14.5:
-                        if Positive < 16.5:
-                            if Modal_Strong < 4.5:
-                                return('Down')
-                            elif Modal_Strong >= 4.5:
-                                if Uncertainty < 6:
                                     return('Up')
-                                elif Uncertainty >= 6:
+                                elif Modal_Strong >= 5.5:
                                     return('Down')
-                        elif Positive >= 16.5:
-                            return('Up')
-                elif Modal_Strong >= 6.5:
+                            elif Uncertainty >= 8.5:
+                                return('Down')
+                        elif Positive >= 14.5:
+                            if Positive < 16.5:
+                                if Modal_Strong < 4.5:
+                                    return('Down')
+                                elif Modal_Strong >= 4.5:
+                                    if Uncertainty < 6:
+                                        return('Up')
+                                    elif Uncertainty >= 6:
+                                        return('Down')
+                            elif Positive >= 16.5:
+                                return('Up')
+                    elif Modal_Strong >= 6.5:
+                        return('Up')
+                elif Uncertainty >= 9.5:
                     return('Up')
-            elif Uncertainty >= 9.5:
-                return('Up')
 
 def getPrediction(news):
     #辭典
@@ -617,11 +617,10 @@ def getPrediction(news):
     #creat_csv.to_csv('EmotionData.csv')
 
     Correct = Prediction(positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num)
-    return('HI')
-    #if Correct == 'Down':
-    #    return('預測結果為跌.')
-    #elif Correct == 'Up':
-    #    return('預測結果為漲.')
+    if Correct == 'Down':
+        return('預測結果為跌.')
+    elif Correct == 'Up':
+        return('預測結果為漲.')
 
 
 
