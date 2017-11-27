@@ -632,21 +632,21 @@ def findNewsFromWeb(stockName):
 
     news = soup.find_all('article','newsItem__5b5cb00f')
     x = 0
-    arr = []
+    allNews = ''
     for i in news:
         if i.find('a'):
             link = i.find('a')['href']
-            arr.append(link)
+            allNews = allNews + str(link) + '\n'
         if i.find('div'):
             title = i.find('div').text
             date = soup.find_all('div','publishedAt__4009bb4f ')[x].text
-            arr.append(title)
-            arr.append(date)
+            allNews += allNews + (title) + '\n'
+            allNews += allNews + (date) + '\n'
         x += 1
-    if(len(arr)) == 0:
-        return('股票代號錯誤！\nㄏㄏ')
+    if(len(allNews) == 0:
+        return('股票代號錯誤！\nf請重新輸入.')
     else:
-        return(arr[0])
+        return(allNews)
 #stockName = 'F'
 #findNewsFromWeb(stockName) # type=tuple
     
