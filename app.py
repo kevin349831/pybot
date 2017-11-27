@@ -628,7 +628,8 @@ def choiceMessage(message):
     elif message.message.text.upper() == 'HI':
         return('Hi~ Haoyu' + 'oi')
     else:
-        return(line_bot_api.get_profile(message.source.user_id))
+        profile = line_bot_api.get_profile(message.source.user_id)
+        return(profile.display_name)
         #return('請丟新聞內容給我，我會幫你預測隔日漲跌。')
     
 
