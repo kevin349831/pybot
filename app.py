@@ -622,7 +622,9 @@ def getPrediction(news):
     elif Correct == 'Up':
         return('預測結果為漲.')
 
-
+def choiceMessage(message):
+    return(len(message))
+    
 
 #this part is my code
 
@@ -647,7 +649,7 @@ def callback():
 def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text = getPrediction(event.message.text))) #event.message.text
+        TextSendMessage(text = choiceMessage(event.message.text))) #event.message.text
 
 
 if __name__ == "__main__":
