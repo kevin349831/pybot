@@ -628,7 +628,7 @@ def choiceMessage(message):
     elif message.message.text.upper() == 'HI':
         return('Hi~ Haoyu')
     else:
-        return(message.user_id)
+        return(message.source.user_id)
         #return('請丟新聞內容給我，我會幫你預測隔日漲跌。')
     
 
