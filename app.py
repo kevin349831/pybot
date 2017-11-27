@@ -626,9 +626,9 @@ def choiceMessage(message):
     if (len(message.message.text)) > 300:
         return(getPrediction(message.message.text))
     elif message.message.text.upper() == 'HI':
-        return('Hi~ Haoyu')
+        return('Hi~ Haoyu' + 'oi')
     else:
-        return(message.source.user_id)
+        return(line_bot_api.get_profile(message.source.user_id))
         #return('請丟新聞內容給我，我會幫你預測隔日漲跌。')
     
 
