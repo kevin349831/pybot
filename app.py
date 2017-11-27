@@ -645,9 +645,16 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    if len(event.message.text) > 300:
+        text = getPrediction(event.message.text)
+    elif event.message.text.upper() = 'HI':
+        text = 'HI~ Haoyu.'
+    else:
+        text = event.message.text
+        
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text = getPrediction(event.message.text))) #event.message.text
+        TextSendMessage(text)) #event.message.text
 
 
 if __name__ == "__main__":
