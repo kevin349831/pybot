@@ -622,7 +622,7 @@ def getPrediction(news):
     elif Correct == 'Up':
         return('預測結果為漲.')
 
-    
+#搜尋網頁新聞
 def findNewsFromWeb(stockName):
     import requests
     from bs4 import BeautifulSoup
@@ -632,14 +632,18 @@ def findNewsFromWeb(stockName):
 
     news = soup.find_all('article','newsItem__5b5cb00f')
     x = 0
+    arr = []
     for i in news:
         if i.find('a'):
             link = i.find('a')['href']
+            arr.append(link)
         if i.find('div'):
             title = i.find('div').text
             date = soup.find_all('div','publishedAt__4009bb4f ')[x].text
+            arr.append(title)
+            arr.append(date)
         x += 1
-    return(str(link))
+    return(arr)
 #stockName = 'F'
 #findNewsFromWeb(stockName) # type=tuple
     
