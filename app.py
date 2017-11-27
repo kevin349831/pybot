@@ -633,7 +633,7 @@ def choiceMessage(message):
         return('Hi~ ' + profile.display_name)
     elif message.message.text.upper() in textNo:
         return('你可以丟新聞內容給我，我會幫你預測隔日漲跌。')
-    elif message.message.text.upper() in textNo:
+    elif message.message.text.upper() in textLater:
         return('摁！')
     else:
         return('不會使用嗎？')
