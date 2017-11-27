@@ -643,7 +643,10 @@ def findNewsFromWeb(stockName):
             arr.append(title)
             arr.append(date)
         x += 1
-    return(arr[0])
+    if(len(arr)) == 0:
+        return('股票代號錯誤！')
+    else:
+        return(arr[0])
 #stockName = 'F'
 #findNewsFromWeb(stockName) # type=tuple
     
