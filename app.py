@@ -644,7 +644,7 @@ def findNewsFromWeb(stockName):
             arr.append(date)
         x += 1
     if(len(arr)) == 0:
-        return('股票代號錯誤！')
+        return('股票代號錯誤！\nㄏㄏ')
     else:
         return(arr[0])
 #stockName = 'F'
