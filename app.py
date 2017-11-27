@@ -143,8 +143,8 @@ def getPrediction(news):
     #情感維度強度分佈向量
     temp_list.append(['S',positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num])
     #print(positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num)
-    temp_for_bot = str(positive_num) +','+ str(negative_num) +','+ str(uncertainty_num) +','+ str(litigious_num) +','+ str(modal_strong_num) +','+ str(modal_weak_num)
-    return(temp_for_bot)
+    #temp_for_bot = str(positive_num) +','+ str(negative_num) +','+ str(uncertainty_num) +','+ str(litigious_num) +','+ str(modal_strong_num) +','+ str(modal_weak_num)
+    #return(temp_for_bot)
     #將結果存在csv檔
     #import pandas as pd
     #creat_csv = pd.DataFrame(temp_list, columns=['Words','Positive','Negative','Uncertainty','Litigious','Modal_strong','Modal_weak'])
@@ -212,11 +212,11 @@ def getPrediction(news):
                 return('Down')
 
 
-    #Correct = Prediction(positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num)
+    Correct = Prediction(positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num)
 
-    #if Correct == 'Down':
+    if Correct == 'Down':
         #return('預測結果為跌.')
-    #elif Correct == 'Up':
+    elif Correct == 'Up':
         #return('預測結果為漲.')
 
 
