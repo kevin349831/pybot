@@ -623,9 +623,10 @@ def getPrediction(news):
         return('預測結果為漲.')
 
 def choiceMessage(message):
+    textHello = ['HI','你好','妳好']
     if (len(message.message.text)) > 300:
         return(getPrediction(message.message.text))
-    elif message.message.text.upper() == 'HI':
+    elif message.message.text.upper() in textHello[]:
         profile = line_bot_api.get_profile(message.source.user_id)
         return('Hi~ ' + profile.display_name)
     else:
