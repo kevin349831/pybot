@@ -639,7 +639,7 @@ def findNewsFromWeb(stockName):
             title = i.find('div').text
             date = soup.find_all('div','publishedAt__4009bb4f ')[x].text
         x += 1
-    return(title,date,link)
+    return(str(title),str(date),str(link))
 #stockName = 'F'
 #findNewsFromWeb(stockName) # type=tuple
     
