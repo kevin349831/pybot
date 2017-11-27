@@ -623,7 +623,12 @@ def getPrediction(news):
         return('預測結果為漲.')
 
 def choiceMessage(message):
-    return(len(message))
+    if (len(message)) > 300:
+        return(getPrediction(message))
+    elif message.upper() == 'HI':
+        return('Hi~ Haoyu')
+    else:
+        return('請丟新聞內容給我，我會幫你預測隔日漲跌。')
     
 
 #this part is my code
