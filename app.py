@@ -623,12 +623,13 @@ def getPrediction(news):
         return('預測結果為漲.')
 
 def choiceMessage(message):
-    if (len(message)) > 300:
-        return(getPrediction(message))
-    elif message.upper() == 'HI':
+    if (len(message.message.text)) > 300:
+        return(getPrediction(message.message.text))
+    elif message.message.text.upper() == 'HI':
         return('Hi~ Haoyu')
     else:
-        return('請丟新聞內容給我，我會幫你預測隔日漲跌。')
+        return(message.user_id)
+        #return('請丟新聞內容給我，我會幫你預測隔日漲跌。')
     
 
 #this part is my code
@@ -654,7 +655,7 @@ def callback():
 def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text = choiceMessage(event.message.text))) #event.message.text
+        TextSendMessage(text = choiceMessage(event))) #event.message.text
 
 
 if __name__ == "__main__":
