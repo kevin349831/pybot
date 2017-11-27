@@ -643,7 +643,7 @@ def findNewsFromWeb(stockName):
             arr.append(title)
             arr.append(date)
         x += 1
-    return(arr)
+    return(arr[0])
 #stockName = 'F'
 #findNewsFromWeb(stockName) # type=tuple
     
@@ -688,10 +688,9 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    a = ['a','b','c']
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text = a)#choiceMessage(event))) #event.message.text
+        TextSendMessage(text = choiceMessage(event))) #event.message.text
 
 
 if __name__ == "__main__":
