@@ -215,9 +215,9 @@ def getPrediction(news):
     Correct = Prediction(positive_num,negative_num,uncertainty_num,litigious_num,modal_strong_num,modal_weak_num)
 
     if Correct == 'Down':
-        #return('預測結果為跌.')
+        return('預測結果為跌.')
     elif Correct == 'Up':
-        #return('預測結果為漲.')
+        return('預測結果為漲.')
 
 
 
