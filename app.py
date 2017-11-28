@@ -643,7 +643,7 @@ def findNewsFromWeb(stockName):
             allNews = allNews + (title) + '\n'
             allNews = allNews + (date) + '\n'
         x += 1
-    if(len(allNews) == 0:
+    if len(allNews) == 0:
         return('股票代號錯誤！\n請重新輸入.')
     else:
         return(allNews)
