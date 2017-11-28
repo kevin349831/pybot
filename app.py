@@ -653,8 +653,8 @@ def choiceMessage(message):
     textHello = ['HI','你好','妳好','hello','?']
     textNo = ['NO','不會','不','如何使用']
     textLater = ['OK','好','等我一下']
-    if (len(message.message.text)) > 300:
-        return(getPrediction(message.message.text)[0:10])
+    if (len(message.message.text)) > 300:                              #文字量>300 判定為文章
+        return(getPrediction(message.message.text))
     elif message.message.text.upper() in textHello:
         profile = line_bot_api.get_profile(message.source.user_id)
         return('Hi~ ' + profile.display_name)
@@ -662,8 +662,8 @@ def choiceMessage(message):
         return('你可以丟新聞內容給我，我會幫你預測隔日漲跌。')
     elif message.message.text.upper() in textLater:
         return('摁！')
-    elif len(message.message.text) < 5: #從bloomberg找股票新聞
-        return(findNewsFromWeb(message.message.text.upper()))
+    elif len(message.message.text) < 5:                                 #從bloomberg找股票新聞
+        return(findNewsFromWeb(message.message.text.upper()[0:10]))
     else:
         return('不會使用嗎？')
     
