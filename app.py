@@ -651,7 +651,7 @@ def findNewsFromWeb(stockName):
 #findNewsFromWeb(stockName) # type=tuple
     
 def carouseMessage():
-    
+    return('hi')
 
 def choiceMessage(message):
     textHello = ['HI','你好','妳好','hello','?']
