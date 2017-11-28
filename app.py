@@ -636,12 +636,10 @@ def findNewsFromWeb(stockName):
     for i in news:
         if i.find('a'):
             link = i.find('a')['href']
-            allNews = allNews + str(link) + '\n'
         if i.find('div'):
             title = i.find('div').text
             date = soup.find_all('div','publishedAt__4009bb4f ')[x].text
-            allNews = allNews + (title) + '\n'
-            allNews = allNews + (date) + '\n'
+        allNews = allNews + (date) + '\n' + (title) + '\n' + str(link) + '\n' 
         x += 1
     if len(allNews) == 0:
         return('股票代號錯誤！\n請重新輸入.')
