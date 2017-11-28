@@ -665,7 +665,7 @@ def choiceMessage(message):
     elif message.message.text.upper() in textLater:
         return('摁！')
     elif '$' in message.message.text:                                   #傳送股價網站
-        return('http://www.nasdaq.com/symbol/' + message.message.text ' + '/historical')
+        return('http://www.nasdaq.com/symbol/' + message.message.text[1:].lower()  + '/historical')
     elif len(message.message.text) < 5:                                 #從bloomberg找股票新聞
         return(findNewsFromWeb(message.message.text.upper()))
     else:
