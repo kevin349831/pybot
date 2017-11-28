@@ -641,6 +641,7 @@ def findNewsFromWeb(stockName):
             date = soup.find_all('div','publishedAt__4009bb4f ')[x].text
         allNews = allNews + (title) + '\n' + (date) + '\n' + str(link) + '\n\n' 
         x += 1
+    allNews = "yes"
     if len(allNews) == 0:
         return('股票代號錯誤！\n請重新輸入.')
     else:
@@ -661,7 +662,7 @@ def choiceMessage(message):
     elif message.message.text.upper() in textNo:
         return('你可以丟新聞內容給我，我會幫你預測隔日漲跌。')
     elif message.message.text.upper() in textLater:
-        return('摁123！')
+        return('摁！')
     elif len(message.message.text) < 5: #從bloomberg找股票新聞
         return(findNewsFromWeb(message.message.text.upper()))
     else:
