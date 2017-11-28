@@ -626,7 +626,7 @@ def getPrediction(news):
 def findNewsFromWeb(stockName):
     import requests
     from bs4 import BeautifulSoup
-    stockName = 'F'
+
     res = requests.get('https://www.bloomberg.com/quote/' + stockName +':US')
     soup = BeautifulSoup(res.text, "html.parser")
 
