@@ -650,8 +650,6 @@ def findNewsFromWeb(stockName):
 #stockName = 'F'
 #findNewsFromWeb(stockName) # type=tuple
     
-def carouseMessage():
-    return('hi')
 
 def choiceMessage(message):
     textHello = ['HI','你好','妳好','hello','?']
@@ -747,7 +745,7 @@ def callback():
 def handle_message(event):
     temp_text = event.message.text
     if temp_text == "news":
-        This_is_test(temp_text)
+        return(This_is_test(temp_text))
     else:
         line_bot_api.reply_message(
             event.reply_token,
