@@ -663,7 +663,7 @@ def choiceMessage(message):
     elif message.message.text.upper() in textLater:
         return('摁！')
     elif len(message.message.text) < 5:                                 #從bloomberg找股票新聞
-        return(findNewsFromWeb(message.message.text.upper()[0:10]))
+        return(findNewsFromWeb(message.message.text.upper())[0:10])
     else:
         return('不會使用嗎？')
     
