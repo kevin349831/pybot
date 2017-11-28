@@ -626,7 +626,7 @@ def getPrediction(news):
 def findNewsFromWeb(stockName):
     import requests
     from bs4 import BeautifulSoup
-    
+    stockName = 'F'
     res = requests.get('https://www.bloomberg.com/quote/' + stockName +':US')
     soup = BeautifulSoup(res.text, "html.parser")
 
@@ -644,7 +644,7 @@ def findNewsFromWeb(stockName):
     if len(allNews) == 0:
         return('股票代號錯誤！\n請重新輸入.')
     else:
-        return(allNews + 'test')
+        return(allNews)
 #stockName = 'F'
 #findNewsFromWeb(stockName) # type=tuple
     
