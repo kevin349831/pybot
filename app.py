@@ -654,7 +654,7 @@ def choiceMessage(message):
     textNo = ['NO','不會','不','如何使用']
     textLater = ['OK','好','等我一下']
     if (len(message.message.text)) > 300:
-        return(getPrediction(message.message.text))
+        return(getPrediction(message.message.text)[0:10])
     elif message.message.text.upper() in textHello:
         profile = line_bot_api.get_profile(message.source.user_id)
         return('Hi~ ' + profile.display_name)
