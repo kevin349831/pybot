@@ -661,7 +661,7 @@ def choiceMessage(message):
     elif message.message.text.upper() in textNo:
         return('你可以丟新聞內容給我，我會幫你預測隔日漲跌。')
     elif message.message.text.upper() in textLater:
-        return('摁！')
+        return('摁123！')
     elif len(message.message.text) < 5: #從bloomberg找股票新聞
         return(findNewsFromWeb(message.message.text.upper()))
     else:
