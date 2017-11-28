@@ -708,11 +708,8 @@ def handle_message(event):
                 MessageTemplateAction(label='Translate Rice', text='米')
             ]),
         ])
-        template_message = TemplateSendMessage(
-            alt_text='Carousel alt text', 
-            template=carousel_template)
-        line_bot_api.reply_message(event.reply_token, 
-                                   template_message)
+        template_message = TemplateSendMessage(alt_text='Carousel alt text',template=carousel_template)
+        line_bot_api.reply_message(event.reply_token,template_message)
     else:
         line_bot_api.reply_message(
             event.reply_token,
