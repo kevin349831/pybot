@@ -693,27 +693,9 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    temp_text = event.message.text
-    if temp_text == "news":
-        carousel_template = CarouselTemplate(columns=[
-            CarouselColumn(text='hoge1', title='fuga1', actions=[
-                URITemplateAction(
-                    label='Go to line.me', uri='https://line.me'),
-                PostbackTemplateAction(label='ping', data='ping')
-            ]),
-            CarouselColumn(text='hoge2', title='fuga2', actions=[
-                PostbackTemplateAction(
-                    label='ping with text', data='ping',
-                    text='ping'),
-                MessageTemplateAction(label='Translate Rice', text='米')
-            ]),
-        ])
-        template_message = TemplateSendMessage(alt_text='Carousel alt text',template=carousel_template)
-        line_bot_api.reply_message(event.reply_token,template_message)
-    else:
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text = choiceMessage(event))) #event.message.text
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text = choiceMessage(event.message.text))) #event.message.text
 
 
 if __name__ == "__main__":
